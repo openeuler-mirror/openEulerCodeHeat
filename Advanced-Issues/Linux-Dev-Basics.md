@@ -100,8 +100,57 @@ Run our code:
 
 In most cases, our codes are far more complicated, we could have one function callling functions from other file. In this step, we will see how to build a more complicated application.
 
+
+### Get the codes
+
 We have some codes for you, download them using the following command:
 
 ```
+curl -L  https://github.com/openeuler-mirror/openEulerCodeHeat/raw/main/Advanced-Issues/awsome_codes.tar.gz
+```
+
+The codes are packed as tarball(\*.tar) and zipped using gzip(\*.gz), this is quite common in the Linux and open source world, let's unzip and untar them:
 
 ```
+tar -zxvf awsome_codes && cd awsome_codes
+```
+
+Checkout what we got with `ls -l`, it should be like this:
+
+```
+ls -l
+
+-rw-r--r-- 1 root root 189 11 23 03:38 cos_value.c
+-rw-r--r-- 1 root root  80 11 23 03:34 cos_value.h
+-rw-r--r-- 1 root root 106  2 11  2022 hello.c
+-rw-r--r-- 1 root root 404 11 23 03:36 main.c
+-rw-r--r-- 1 root root 162 11 23 03:34 sin_value.c
+-rw-r--r-- 1 root root  80 11 23 03:32 sin_value.h
+```
+
+`main.c`: The main purpose is to allow users to input angle data and call other three subroutines.
+
+`hello.c`: output welcome message
+
+`sin_value.c`: Calculate the sin value of the angle (360) entered by the user
+
+`cos_value.c`: Calculate the cos value of the angle (360) entered by the user
+
+Feel free to checkout what is inside those files using `vim` or `cat`.
+
+### Build and Compile
+
+Now, let's complie our codes:
+
+```
+gcc -c main.c hello.c sin_value.c cos_value.c
+```
+the command will compile all the codes and generate 4 \*.o files.
+
+Then, run `gcc -o angle_cal main.o hello.o sin_value.o cos_value.o -lm` to link all or files, and also the `libmath` library that we used for math calculation, and build our executable `angle_cal`
+
+call `./angle_cal` to run our executable and play with it.
+
+## Step 4
+
+TBA. about using make
