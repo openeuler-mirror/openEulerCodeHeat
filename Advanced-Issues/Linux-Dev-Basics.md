@@ -112,7 +112,7 @@ curl -L  https://github.com/openeuler-mirror/openEulerCodeHeat/raw/main/Advanced
 The codes are packed as tarball(\*.tar) and zipped using gzip(\*.gz), this is quite common in the Linux and open source world, let's unzip and untar them:
 
 ```
-tar -zxvf awsome_codes && cd awsome_codes
+tar -zxvf awsome_codes.tar.gz && cd awsome_codes
 ```
 
 Checkout what we got with `ls -l`, it should be like this:
